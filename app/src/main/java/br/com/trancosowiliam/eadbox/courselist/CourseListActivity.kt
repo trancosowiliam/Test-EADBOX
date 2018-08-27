@@ -11,7 +11,7 @@ import org.koin.android.ext.android.inject
 class CourseListActivity : AppCompatActivity(), CourseListContract.View{
     override val presenter by inject<CourseListContract.Presenter>()
 
-    val controller by lazy { CourseController() }
+    private val controller by lazy { CourseController() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
