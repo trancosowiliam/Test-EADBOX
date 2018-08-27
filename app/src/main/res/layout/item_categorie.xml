@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#008800">
+    android:id="@+id/ictContent"
+    android:background="@drawable/bg_rounded">
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/ictTxtShadowIcon"

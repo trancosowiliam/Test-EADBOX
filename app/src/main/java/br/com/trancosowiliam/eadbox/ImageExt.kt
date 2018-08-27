@@ -1,12 +1,14 @@
 package br.com.trancosowiliam.eadbox
 
 import android.graphics.*
+import android.graphics.drawable.GradientDrawable
+import android.support.annotation.ColorInt
+import android.view.View
 import com.squareup.picasso.RequestCreator
 import com.squareup.picasso.Transformation
 
 
 fun RequestCreator.rounded(radius:Number) : RequestCreator {
-
     this.transform(object : Transformation {
         override fun key() = "$radius"
 
@@ -32,4 +34,10 @@ fun RequestCreator.rounded(radius:Number) : RequestCreator {
     })
 
     return this
+}
+
+fun View.setBgColor(@ColorInt color:Int) {
+    (this.background as? GradientDrawable)?.let {
+        it.setColor(color)
+    }
 }
