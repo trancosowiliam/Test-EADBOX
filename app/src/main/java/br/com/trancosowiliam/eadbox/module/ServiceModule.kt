@@ -6,5 +6,5 @@ import br.com.trancosowiliam.eadbox.data.repository.remote.CourseRepositoryImpl
 import org.koin.dsl.module.applicationContext
 
 val servicesModule = applicationContext {
-    bean { CourseRepositoryImpl(retrofit = get()) as CourseRepository }
+    factory { CourseRepositoryImpl(retrofit = get()) as CourseRepository }
 }

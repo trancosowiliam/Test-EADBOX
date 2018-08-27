@@ -6,13 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".courselist.CourseListActivity">
 
-    <com.airbnb.epoxy.EpoxyRecyclerView
+    <include
+        android:id="@+id/clToolbar"
+        layout="@layout/toolbar" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/clTxtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="22dp"
+        android:text="Cursos"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clToolbar" />
+
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/clRecCourses"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/clTxtTitle"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
