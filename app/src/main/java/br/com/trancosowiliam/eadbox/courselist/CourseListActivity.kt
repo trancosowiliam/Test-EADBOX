@@ -53,5 +53,13 @@ class CourseListActivity : AppCompatActivity(), CourseListContract.View{
     override fun showLoading(show: Boolean) {
         clRecCourses.isVisible = !show
         clLoading.isVisible = show
+        clTxtTitle.isVisible = false
+    }
+
+    override fun showMessage(message: String) {
+        clRecCourses.isVisible = false
+        clLoading.isVisible = false
+        clTxtTitle.text = message
+        clTxtTitle.isVisible = true
     }
 }

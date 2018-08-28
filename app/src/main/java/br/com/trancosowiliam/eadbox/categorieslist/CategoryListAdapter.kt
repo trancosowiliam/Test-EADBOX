@@ -11,7 +11,7 @@ import br.com.trancosowiliam.eadbox.random
 import br.com.trancosowiliam.eadbox.setBgColor
 import kotlinx.android.synthetic.main.item_categorie.view.*
 
-class CategoriesListAdapter (private val categories:List<Category>) : RecyclerView.Adapter<CategoriesListAdapter.Holder>() {
+class CategoryListAdapter (private val categories:List<Category>) : RecyclerView.Adapter<CategoryListAdapter.Holder>() {
 
     var onClickListener: ((Category) -> Unit)? = null
 

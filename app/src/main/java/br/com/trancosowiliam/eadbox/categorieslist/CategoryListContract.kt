@@ -4,7 +4,7 @@ import br.com.trancosowiliam.eadbox.BasePresenter
 import br.com.trancosowiliam.eadbox.BaseView
 import br.com.trancosowiliam.eadbox.data.model.Category
 
-interface CategorieListContract{
+interface CategoryListContract{
     interface Presenter : BasePresenter<View> {
         fun loadCategories()
     }
@@ -12,5 +12,6 @@ interface CategorieListContract{
     interface View : BaseView<Presenter> {
         fun showCategories(categories: List<Category>)
         fun showLoading(show: Boolean)
+        fun showMessage(message:String)
     }
 }

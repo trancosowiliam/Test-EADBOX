@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".categorieslist.CategorieListActivity">
+    tools:context=".categorieslist.CategoryListActivity">
 
     <include
         android:id="@+id/ctlToolbar"
@@ -53,7 +53,9 @@
         app:layout_constraintTop_toBottomOf="@+id/ctlTxtTitle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
     <ProgressBar
         android:id="@+id/ctlLoading"
@@ -63,6 +65,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.25"/>
+        app:layout_constraintVertical_bias="0.25"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/ctlTxtMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Nenhum item foi encontrado"
+        android:fontFamily="@font/app_font"
+        android:textSize="18sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/ctlTxtTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
 </android.support.constraint.ConstraintLayout>

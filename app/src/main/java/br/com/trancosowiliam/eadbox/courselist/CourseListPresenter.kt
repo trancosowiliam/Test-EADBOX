@@ -7,11 +7,16 @@ class CourseListPresenter(private val repository: CourseRepository) : CourseList
     override lateinit var view: CourseListContract.View
 
     private val getCoursesOnSuccess: (List<Course>) -> Unit = { courses ->
-        view.showCourses(courses)
-        view.showLoading(false)
+        if(courses.isEmpty()) {
+            view.showMessage("Nenhum item foi encontrado")
+        } else {
+            view.showCourses(courses)
+            view.showLoading(false)
+        }
     }
 
     private val getCoursesOnFailure: (String) -> Unit = { _ ->
+        view.showMessage("Nenhum item foi encontrado")
         view.showLoading(false)
     }
 

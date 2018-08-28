@@ -12,5 +12,6 @@ interface CourseListContract{
     interface View : BaseView<Presenter> {
         fun showCourses(courses: List<Course>)
         fun showLoading(show: Boolean)
+        fun showMessage(message:String)
     }
 }
