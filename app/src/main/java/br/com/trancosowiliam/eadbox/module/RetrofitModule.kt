@@ -70,7 +70,7 @@ val retrofitClientModule = applicationContext {
         JsonDeserializer<Course> { json, _, _ ->
             val gson = Gson()
             gson.fromJson<Course>(json, Course::class.java).copy(
-                    categoryId = gson.fromJson<Category>(json?.asJsonObject?.get("category"), Category::class.java).slug
+                    categoryId = gson.fromJson<Category>(json?.asJsonObject?.get("category"), Category::class.java)?.slug ?: "sem-categoria"
             )
         }
     }

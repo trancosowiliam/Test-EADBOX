@@ -28,6 +28,7 @@ class CategoryRepository(private val remoteRepository: CourseRemoteRepository, p
     private fun saveCategories(categories: List<Category>) {
         asyncExec (exec = {
             database.getCategoryDao().insert(*categories.toTypedArray())
+            database.getCategoryDao().insert(Category("Sem Categoria", "sem-categoria", 0))
         }){}
     }
 }

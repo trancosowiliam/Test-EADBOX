@@ -7,7 +7,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-@Entity(foreignKeys = [(ForeignKey(entity = Category::class, parentColumns = ["slug"], childColumns = ["categoryId"], onDelete = ForeignKey.CASCADE))])
+@Entity(foreignKeys = [(ForeignKey(entity = Category::class, parentColumns = ["slug"], childColumns = ["categoryId"], onDelete = ForeignKey.CASCADE, deferred = true))])
 data class Course(
         @PrimaryKey
         @SerializedName("course_id")

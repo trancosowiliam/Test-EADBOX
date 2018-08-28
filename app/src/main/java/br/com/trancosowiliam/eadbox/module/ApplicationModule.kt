@@ -23,5 +23,5 @@ val applicationModule = applicationContext {
     factory { CategoryRepository(get(), get()) }
 
     factory { CourseRemoteRepositoryImpl(get()) as CourseRemoteRepository }
-    factory { Room.databaseBuilder(get(), EadboxDatabase::class.java, "database3.db").build() }
+    factory { Room.databaseBuilder(get(), EadboxDatabase::class.java, "database.db").build() }
 }

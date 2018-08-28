@@ -11,6 +11,6 @@ interface CategoryDao {
     @Update
     fun update(vararg category: Category)
 
-    @Query("SELECT * FROM category")
+    @Query("SELECT * FROM category WHERE coursesCount > 0")
     fun getAll(): List<Category>
 }
