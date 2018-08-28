@@ -10,6 +10,6 @@ import org.koin.dsl.module.applicationContext
 
 val applicationModule = applicationContext {
     factory { CourseListPresenter(repository = get()) as CourseListContract.Presenter }
-    factory { CategoryListPresenter(repository = get()) as CategoryListContract.Presenter }
+    factory { CategoryListPresenter(repository = get(), categoryDao = get()) as CategoryListContract.Presenter }
     factory { CoursePresenter() as CourseContract.Presenter }
 }

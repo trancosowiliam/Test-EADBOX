@@ -11,16 +11,15 @@ import com.google.gson.annotations.SerializedName
 data class Course(
         @PrimaryKey
         @SerializedName("course_id")
-        val courseId: String,
+        var courseId: String,
 
         @SerializedName("logo_url")
-        val logoUrl: String,
+        var logoUrl: String,
 
         @SerializedName("description")
-        val description: String,
+        var description: String,
 
-        @Transient
-        val categoryId: String) : Parcelable
+        var categoryId: String) : Parcelable
 {
         constructor(source: Parcel) : this(
                 source.readString(),
@@ -28,6 +27,8 @@ data class Course(
                 source.readString(),
                 source.readString()
         )
+
+        constructor() : this("", "", "", "")
 
         override fun describeContents() = 0
 

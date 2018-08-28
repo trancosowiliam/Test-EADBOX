@@ -1,16 +1,12 @@
 package br.com.trancosowiliam.eadbox.data.dao
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
-import android.arch.persistence.room.Update
+import android.arch.persistence.room.*
 import br.com.trancosowiliam.eadbox.data.model.Category
-import br.com.trancosowiliam.eadbox.data.model.Course
 
 @Dao
 interface CategoryDao {
-    @Insert
-    fun insert(category: Category)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(vararg category: Category)
 
     @Update
     fun update(vararg category: Category)
