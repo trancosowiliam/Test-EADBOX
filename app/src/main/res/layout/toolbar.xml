@@ -9,10 +9,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="14dp"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/clViewTitleSeparator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/tbIcUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_user"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/app_font"
+        android:text="Entrar"
+        android:textSize="16sp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tbIcUser"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <View
         android:id="@+id/clViewTitleSeparator"
@@ -20,7 +41,7 @@
         android:layout_height="1dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="?android:attr/actionBarSize"
+        android:layout_marginTop="64dp"
         android:background="#33333333"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
