@@ -29,6 +29,7 @@ ext {
     retrofitversion = "2.4.0"
     koinVersion = "0.9.1"
     epoxyVersion = "2.12.0"
+    roomVersion = "1.0.0"
 }
 
 dependencies {
@@ -53,6 +54,9 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.2"
 
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
 }
 
 repositories {
