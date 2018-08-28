@@ -10,7 +10,6 @@ class CategorieListPresenter(private val repository: CourseRepository) : Categor
 
         repository.getCategories({ categories ->
 
-
             view.showCategories(categories.filter {
                 it.coursesCount > 0
             }.sortedByDescending {

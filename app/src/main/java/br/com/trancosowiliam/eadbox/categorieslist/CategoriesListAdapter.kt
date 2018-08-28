@@ -20,12 +20,14 @@ class CategoriesListAdapter (private val categories:List<Category>) : RecyclerVi
         return Holder(view)
     }
 
-    override fun getItemCount() = categories.size
+    override fun getItemCount() = categories.size + 1
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.render(categories[position])
+        val category = categories.getOrElse(position) { Category("Todos", "", 1) }
+
+        holder.render(category)
         holder.itemView.setOnClickListener {
-            onClickListener?.invoke(categories[position])
+            onClickListener?.invoke(category)
         }
     }
 
