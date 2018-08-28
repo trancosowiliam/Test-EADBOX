@@ -8,7 +8,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 
-class CourseRepositoryImpl(val retrofit: Retrofit) : CourseRepository {
+class CourseRemoteRepositoryImpl(private val retrofit: Retrofit) : CourseRemoteRepository {
     private val courseService by lazy { retrofit.create(CourseService::class.java) }
 
     override fun getAll(onSuccess: (List<Course>) -> Unit, onFailure: (String) -> Unit) {

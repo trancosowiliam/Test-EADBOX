@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import br.com.trancosowiliam.eadbox.R
 import br.com.trancosowiliam.eadbox.data.model.Course
 import br.com.trancosowiliam.eadbox.dpToPx
+import br.com.trancosowiliam.eadbox.load
 import br.com.trancosowiliam.eadbox.rounded
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
@@ -32,11 +33,11 @@ class CourseListAdapter(private val courses:List<Course>) : RecyclerView.Adapter
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun render(item: Course) {
-            Picasso.get()
-                    .load(item.logoUrl)
-                    .networkPolicy(NetworkPolicy.OFFLINE)
-                    .rounded(16.dpToPx())
-                    .into(itemView.icImgLogo)
+            itemView.icImgLogo.load( creator = {
+                Picasso.get()
+                        .load(item.logoUrl)
+                        .rounded(16.dpToPx())
+            })
         }
     }
 }

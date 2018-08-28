@@ -1,24 +1,27 @@
 package br.com.trancosowiliam.eadbox.module
 
 import br.com.trancosowiliam.eadbox.BuildConfig
+import br.com.trancosowiliam.eadbox.data.model.Category
+import br.com.trancosowiliam.eadbox.data.model.Course
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonDeserializer
+import com.google.gson.TypeAdapter
 import okhttp3.Interceptor
-
-import java.util.concurrent.TimeUnit
-
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module.applicationContext
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 private const val BASE_URL = "BASE_URL"
 private const val READ_TIME_OUT = "READ_TIME_OUT"
 private const val CONNECT_TIME_OUT = "CONNECT_TIME_OUT"
 private const val HEADER_INTERCEPTOR = "HEADER_INTERCEPTOR"
 private const val LOGGER_INTERCEPTOR = "LOGGER_INTERCEPTOR"
+private const val COURSE_DESERIALIZER = "COURSE_DESERIALIZER"
 
 val retrofitClientModule = applicationContext {
 
@@ -34,7 +37,9 @@ val retrofitClientModule = applicationContext {
                 .build()
     }
 
-    bean { GsonBuilder().create() as Gson }
+    bean { GsonBuilder()
+            .registerTypeAdapter(Course::class.java, get(COURSE_DESERIALIZER))
+            .create() as Gson }
 
     bean {
         OkHttpClient.Builder()
@@ -58,6 +63,15 @@ val retrofitClientModule = applicationContext {
     bean(LOGGER_INTERCEPTOR) {
         HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        }
+    }
+
+    bean(COURSE_DESERIALIZER) {
+        JsonDeserializer<Course> { json, _, _ ->
+            val gson = Gson()
+            gson.fromJson<Course>(json, Course::class.java).copy(
+                    categoryId = gson.fromJson<Category>(json?.asJsonObject?.get("category"), Category::class.java).slug
+            )
         }
     }
 }

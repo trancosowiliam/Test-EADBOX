@@ -15,5 +15,5 @@ interface CourseDao {
     fun getAll(): List<Course>
 
     @Query("SELECT * FROM course WHERE categoryId=:categoryId")
-    fun findCoursesForCategory(categoryId: Int): List<Course>
+    fun findCoursesForCategory(categoryId: String): List<Course>
 }

@@ -6,9 +6,7 @@ import android.graphics.drawable.GradientDrawable
 import android.support.annotation.ColorInt
 import android.view.View
 import android.widget.ImageView
-import com.squareup.picasso.Callback
-import com.squareup.picasso.RequestCreator
-import com.squareup.picasso.Transformation
+import com.squareup.picasso.*
 import java.lang.Exception
 
 
@@ -60,4 +58,21 @@ fun ImageView.getColorPixel(x:Int, y:Int): Int {
     return (this.drawable as? BitmapDrawable)?.let {
         it.bitmap.getPixel(x, y)
     } ?: Color.TRANSPARENT
+}
+
+fun ImageView.load(creator:()-> RequestCreator, onLoaded:(()->Unit)? = null) {
+    creator().networkPolicy(NetworkPolicy.OFFLINE)
+            .into(this, object : Callback {
+                override fun onSuccess() {
+                    onLoaded?.invoke()
+                }
+                override fun onError(e: Exception?) {
+                    creator().into(this@load, object : Callback {
+                        override fun onSuccess() {
+                            onLoaded?.invoke()
+                        }
+                        override fun onError(e: Exception?) {}
+                    })
+                }
+            })
 }

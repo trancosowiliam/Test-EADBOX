@@ -8,6 +8,6 @@ import br.com.trancosowiliam.eadbox.data.model.Course
 
 @Database(entities = [Category::class, Course::class], version = 1)
 abstract class EadboxDatabase : RoomDatabase() {
-    abstract fun courseDao() : CourseDao
-    abstract fun categoryDao() : CategoryDao
+    abstract fun getCourseDao() : CourseDao
+    abstract fun getCategoryDao() : CategoryDao
 }

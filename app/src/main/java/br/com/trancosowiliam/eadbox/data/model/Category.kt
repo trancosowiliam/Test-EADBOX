@@ -7,14 +7,14 @@ import com.google.gson.annotations.SerializedName
 @Entity
 data class Category(
         @SerializedName("title")
-        var title:String,
+        var title: String,
 
         @PrimaryKey
         @SerializedName("category_slug")
-        var slug:String,
+        var slug: String,
 
         @SerializedName("courses_count")
-        var coursesCount:Int
-) {
-        constructor() :this("", "", 0)
+        var coursesCount: Int)
+{
+    constructor() : this("", "", 0)
 }

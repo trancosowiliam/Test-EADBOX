@@ -35,13 +35,13 @@ class CourseActivity : AppCompatActivity(), CourseContract.View {
     }
 
     private fun setupView() {
-        Picasso.get()
-                .load(course.logoUrl)
-                .networkPolicy(NetworkPolicy.OFFLINE)
-                .rounded(16.dpToPx())
-                .into(coImgLogo){
-                    coContainer.setBackgroundColor(coImgLogo.getColorPixel(16.dpToPx(),16.dpToPx()))
-                }
+        coImgLogo.load(creator = {
+            Picasso.get()
+                    .load(course.logoUrl)
+                    .networkPolicy(NetworkPolicy.OFFLINE)
+        }, onLoaded = {
+            coContainer.setBackgroundColor(coImgLogo.getColorPixel(0,0))
+        })
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             coTxtDescription.text = Html.fromHtml(course.description, Html.FROM_HTML_MODE_LEGACY)
