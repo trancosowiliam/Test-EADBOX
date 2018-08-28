@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:fontFamily="@font/app_font"
-        android:text="EADBOX"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/clViewTitleSeparator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
