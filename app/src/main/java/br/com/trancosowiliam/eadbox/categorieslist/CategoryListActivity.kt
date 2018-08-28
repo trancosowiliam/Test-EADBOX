@@ -35,14 +35,14 @@ class CategoryListActivity : AppCompatActivity(), CategoryListContract.View{
     override fun showLoading(show: Boolean) {
         ctlRecCategories.isVisible = !show
         ctlLoading.isVisible = show
-        ctlTxtTitle.isVisible = false
+        ctlTxtMessage.isVisible = false
     }
 
     override fun showMessage(message: String) {
         ctlRecCategories.isVisible = false
         ctlLoading.isVisible = false
-        ctlTxtTitle.text = message
-        ctlTxtTitle.isVisible = true
+        ctlTxtMessage.text = message
+        ctlTxtMessage.isVisible = true
     }
     private fun setupViews() {
         ctlRecCategories.layoutManager = GridLayoutManager(this, 2)

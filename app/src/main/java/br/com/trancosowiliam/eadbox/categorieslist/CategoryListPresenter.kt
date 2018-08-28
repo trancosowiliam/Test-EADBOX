@@ -23,7 +23,6 @@ class CategoryListPresenter(private val repository: CourseRepository) : Category
             }
         }, {
             view.showMessage("Nenhum item foi encontrado")
-            view.showLoading(false)
         })
     }
 }

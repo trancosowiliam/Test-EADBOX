@@ -17,7 +17,6 @@ class CourseListPresenter(private val repository: CourseRepository) : CourseList
 
     private val getCoursesOnFailure: (String) -> Unit = { _ ->
         view.showMessage("Nenhum item foi encontrado")
-        view.showLoading(false)
     }
 
     override fun loadCourses(categorySlug:String) {
