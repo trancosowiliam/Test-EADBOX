@@ -2,7 +2,7 @@ package br.com.trancosowiliam.eadbox.categorieslist
 
 import br.com.trancosowiliam.eadbox.BasePresenter
 import br.com.trancosowiliam.eadbox.BaseView
-import br.com.trancosowiliam.eadbox.data.model.Categorie
+import br.com.trancosowiliam.eadbox.data.model.Category
 
 interface CategorieListContract{
     interface Presenter : BasePresenter<View> {
@@ -10,8 +10,7 @@ interface CategorieListContract{
     }
 
     interface View : BaseView<Presenter> {
-        fun showLoadDialog()
-        fun showCategories(categories: List<Categorie>)
-        fun dismissLoadDialog()
+        fun showCategories(categories: List<Category>)
+        fun showLoading(show: Boolean)
     }
 }

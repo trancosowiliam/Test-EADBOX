@@ -6,12 +6,11 @@ import br.com.trancosowiliam.eadbox.data.model.Course
 
 interface CourseListContract{
     interface Presenter : BasePresenter<View> {
-        fun loadCourses()
+        fun loadCourses(categorySlug:String)
     }
 
     interface View : BaseView<Presenter> {
-        fun showLoadDialog()
         fun showCourses(courses: List<Course>)
-        fun dismissLoadDialog()
+        fun showLoading(show: Boolean)
     }
 }

@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.trancosowiliam.eadbox.R
-import br.com.trancosowiliam.eadbox.data.model.Categorie
+import br.com.trancosowiliam.eadbox.data.model.Category
 import br.com.trancosowiliam.eadbox.random
 import br.com.trancosowiliam.eadbox.setBgColor
 import kotlinx.android.synthetic.main.item_categorie.view.*
 
-class CategoriesListAdapter (private val categories:List<Categorie>) : RecyclerView.Adapter<CategoriesListAdapter.Holder>() {
+class CategoriesListAdapter (private val categories:List<Category>) : RecyclerView.Adapter<CategoriesListAdapter.Holder>() {
 
-    var onClickListener: ((Categorie) -> Unit)? = null
+    var onClickListener: ((Category) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.item_categorie, parent, false)
@@ -31,7 +31,7 @@ class CategoriesListAdapter (private val categories:List<Categorie>) : RecyclerV
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun render(item: Categorie) {
+        fun render(item: Category) {
             itemView.ictTxtShadowIcon.text = item.title.elementAt(0).toString()
             itemView.ictTxtIcon.text = item.title.elementAt(0).toString()
             itemView.ictTxtTitle.text = item.title
