@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import br.com.trancosowiliam.eadbox.GridDecoration
 import br.com.trancosowiliam.eadbox.R
+import br.com.trancosowiliam.eadbox.course.CourseActivity
 import br.com.trancosowiliam.eadbox.data.model.Course
 import br.com.trancosowiliam.eadbox.dpToPx
 import br.com.trancosowiliam.eadbox.isVisible
@@ -44,8 +45,8 @@ class CourseListActivity : AppCompatActivity(), CourseListContract.View{
 
     override fun showCourses(courses: List<Course>) {
         val adapter = CourseListAdapter(courses)
-        adapter.onClickListener = {
-            Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show()
+        adapter.onClickListener = { course ->
+            startActivity(CourseActivity.newIntent(this, course))
         }
         clRecCourses.adapter = adapter
     }

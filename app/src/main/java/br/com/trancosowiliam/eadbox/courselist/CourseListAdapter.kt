@@ -8,10 +8,11 @@ import br.com.trancosowiliam.eadbox.R
 import br.com.trancosowiliam.eadbox.data.model.Course
 import br.com.trancosowiliam.eadbox.dpToPx
 import br.com.trancosowiliam.eadbox.rounded
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_course.view.*
 
-class CourseListAdapter(val courses:List<Course>) : RecyclerView.Adapter<CourseListAdapter.Holder>() {
+class CourseListAdapter(private val courses:List<Course>) : RecyclerView.Adapter<CourseListAdapter.Holder>() {
 
     var onClickListener: ((Course) -> Unit)? = null
 
@@ -30,9 +31,12 @@ class CourseListAdapter(val courses:List<Course>) : RecyclerView.Adapter<CourseL
     }
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         fun render(item: Course) {
-            Picasso.get().load(item.logoUrl).rounded(16.dpToPx()).into(itemView.icImgLogo)
+            Picasso.get()
+                    .load(item.logoUrl)
+                    .networkPolicy(NetworkPolicy.OFFLINE)
+                    .rounded(16.dpToPx())
+                    .into(itemView.icImgLogo)
         }
     }
 }
