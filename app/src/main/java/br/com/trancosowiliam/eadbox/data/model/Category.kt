@@ -7,5 +7,8 @@ data class Category(
         val title:String,
 
         @SerializedName("category_slug")
-        val slug:String
+        val slug:String,
+
+        @SerializedName("courses_count")
+        val coursesCount:Int
 )

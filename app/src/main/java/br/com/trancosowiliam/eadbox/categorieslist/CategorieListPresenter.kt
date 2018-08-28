@@ -8,8 +8,15 @@ class CategorieListPresenter(private val repository: CourseRepository) : Categor
     override fun loadCategories() {
         view.showLoading(true)
 
-        repository.getCategories({
-            view.showCategories(it)
+        repository.getCategories({ categories ->
+
+
+            view.showCategories(categories.filter {
+                it.coursesCount > 0
+            }.sortedByDescending {
+                it.coursesCount
+            })
+
             view.showLoading(false)
         }, {
             view.showLoading(false)
